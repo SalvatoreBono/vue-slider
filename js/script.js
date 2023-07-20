@@ -32,7 +32,6 @@ createApp({
         };
     },
     methods: {
-
         nextBtn() {
             this.currentImg++;
             if (this.currentImg - 1 === this.slides.length - 1) {
@@ -49,4 +48,7 @@ createApp({
             this.currentImg = i;
         },
     },
+    mounted() {
+        setInterval(this.nextBtn, 3000)
+    }
 }).mount('#app');
