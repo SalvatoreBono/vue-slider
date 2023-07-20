@@ -44,6 +44,9 @@ createApp({
             if (this.currentImg === -1) {
                 this.currentImg = this.slides.length - 1;
             }
-        }
+        },
+        bonusBtn(i) {
+            this.currentImg = i;
+        },
     },
 }).mount('#app');
