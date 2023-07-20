@@ -29,6 +29,7 @@ createApp({
                 }
             ],
             currentImg: 0,
+            autoPlay: 0,
         };
     },
     methods: {
@@ -47,8 +48,14 @@ createApp({
         bonusBtn(i) {
             this.currentImg = i;
         },
+        mouseOver() {
+            clearInterval(this.autoPlay);
+        },
+        mouseOut() {
+            this.autoPlay = setInterval(this.nextBtn, 3000);
+        },
     },
     mounted() {
-        setInterval(this.nextBtn, 3000)
-    }
+        this.autoPlay = setInterval(this.nextBtn, 3000);
+    },
 }).mount('#app');

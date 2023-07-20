@@ -22,6 +22,8 @@
 
           <!-- v-show="(currentImg === i)" così da nascondere le img che hanno un indice diverso  -->
           <div
+            @mouseover="mouseOver"
+            @mouseout="mouseOut"
             v-for="(slide, i) in slides"
             v-show="(currentImg === i)"
             class="item"
