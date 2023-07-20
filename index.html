@@ -12,6 +12,8 @@
     <div id="app">
       <div class="container">
         <div class="slider-wrapper" tabindex="0">
+          <!-- v-for="(slide, i) in slides" ciclare così da poter ciclare img, titoli e testi -->
+          <!-- v-show="(currentImg === i)" così da nascondere le img che hanno un indice diverso  -->
           <div
             v-for="(slide, i) in slides"
             v-show="(currentImg === i)"
@@ -26,7 +28,13 @@
           <div class="thumbs">
             <div @click="prevBtn" class="prev"></div>
             <div @click="nextBtn" class="next"></div>
-            <div v-for="(slide, i) in slides" class="thumb">
+            <!-- v-for="(slide, i) in slides" fare un altro ciclo perchè il primo for creato non è più figlio e quindi rifarlo così da poter ciclare le foto della thumb  -->
+            <!-- ":class="currentImg === i ? `active`: ``" se currentImg è uguale all'indice, dai classe active altrimenti non dare niente  -->
+            <div
+              v-for="(slide, i) in slides"
+              class="thumb"
+              :class="currentImg === i ? `active`: ``"
+            >
               <img :src="slide.image" alt="Svezia" />
             </div>
           </div>
